@@ -1,10 +1,14 @@
 def process(path_file, instance):
-    """Aqui irá sua implementação"""
-
+    terms = txt_importer(path_file)
+    for term in terms:
+        instance.enqueue(term)
 
 def remove(instance):
-    """Aqui irá sua implementação"""
-
+    instance.dequeue()
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        return instance.search(position)
+    except IndexError:
+        print("Índice Inválido ou Inexistente")
+
